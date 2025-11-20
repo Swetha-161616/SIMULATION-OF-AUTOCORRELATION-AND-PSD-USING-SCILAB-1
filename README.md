@@ -47,6 +47,36 @@ Verify the generated waveform using Tabulation and Model Waveform
 
 __PROGRAM:__
 
+```
+clc;
+clear;
+t=0:0.01:2*%pi;
+x=sin(2*t);
+subplot(3,2,1);
+plot(t,x);
+title("Original signal");
+au=xcorr(x,x);
+subplot(3,2,2);
+plot(au);
+title("Auto-Correlation");
+v=fft(au);
+subplot(3,2,3);
+plot(abs(v));
+title("FFt of Auto-Correlation");
+fw=fft(x);
+subplot(3,2,4);
+plot(fw);
+title("FFT of signal");
+fw2=(abs(fw)).^2;
+subplot(3,2,5);
+plot(fw2);
+title("Power spectrum");
+```
+
 __OUTPUT:__
 
+<img width="766" height="600" alt="514904341-37840aa2-6076-4d96-92a7-a9aaaa628e97" src="https://github.com/user-attachments/assets/45849350-6272-4072-82e2-9b419541c7ff" />
+
 __RESULT:__
+
+   Thus the autocorrelation and PSD are excuted in Scilab and output is verfied
